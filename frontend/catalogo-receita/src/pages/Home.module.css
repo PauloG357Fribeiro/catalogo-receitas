@@ -1,0 +1,9 @@
+.container {
+    padding: 2rem;
+}
+
+.lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
