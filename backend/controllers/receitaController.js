@@ -9,6 +9,18 @@ exports.getReceitas = async (req, res) => {
   }
 };
 
+exports.getReceitaById = async (req, res) => {
+  try {
+    const receita = await Receita.findById(req.params.id);
+    if (!receita) {
+      return res.status(404).json({ message: 'Receita não encontrada' });
+    }
+    res.json(receita);
+  } catch (error) {
+    res.status(500).json({ error: 'Erro ao buscar receita.' });
+  }
+};
+
 exports.createReceita = async (req, res) => {
   try {
     const novaReceita = new Receita(req.body);
@@ -25,11 +37,9 @@ exports.updateReceita = async (req, res) => {
       new: true,
       runValidators: true,
     });
-
     if (!receita) {
       return res.status(404).json({ message: 'Receita não encontrada' });
     }
-
     res.status(200).json(receita);
   } catch (error) {
     res.status(400).json({ message: 'Erro ao atualizar receita.', error: error.message });
@@ -38,9 +48,12 @@ exports.updateReceita = async (req, res) => {
 
 exports.deleteReceita = async (req, res) => {
   try {
-    await Receita.findByIdAndDelete(req.params.id);
+    const receita = await Receita.findByIdAndDelete(req.params.id);
+    if (!receita) {
+      return res.status(404).json({ message: 'Receita não encontrada' });
+    }
     res.json({ mensagem: 'Receita removida com sucesso!' });
   } catch (error) {
-    res.status(400).json({ error: 'Erro ao remover receita.' });
+    res.status(500).json({ error: 'Erro ao remover receita.' });
   }
 };

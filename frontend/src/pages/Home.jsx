@@ -11,18 +11,20 @@ function Home() {
   useEffect(() => {
     async function fetchReceitas() {
       try {
-        const res = await api.get('/receitas');
+        const res = await api.get("/receitas");
         setReceitas(res.data);
       } catch (error) {
-        console.error('Erro ao buscar receitas: ', error);
+        console.error("Erro ao buscar receitas: ", error);
       }
     }
     fetchReceitas();
   }, []);
 
   const handleDelete = async (id) => {
-    const confirmar = window.confirm("Tem certeza que deseja excluir esta receita?");
-    
+    const confirmar = window.confirm(
+      "Tem certeza que deseja excluir esta receita?"
+    );
+
     if (confirmar) {
       try {
         await api.delete(`/receitas/${id}`);

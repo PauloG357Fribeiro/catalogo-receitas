@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 5004;
 app.use(cors());
 app.use(express.json());
 
-app.use('/receitas', receitaRoutes);
+app.use('/api/receitas', receitaRoutes);
 
 mongoose
   .connect(process.env.MONGO_URI)

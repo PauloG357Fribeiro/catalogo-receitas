@@ -18,12 +18,12 @@ function EditarReceita() {
       try {
         const response = await api.get(`/receitas/${id}`);
         const receita = response.data;
-        
+
         setNome(receita.nome);
         setCategoria(receita.categoria);
         setDescricao(receita.descricao);
         setImagem(receita.imagem);
-        
+
       } catch (error) {
         console.error("Erro ao buscar dados da receita:", error);
         alert("Não foi possível carregar os dados da receita.");
