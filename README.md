@@ -44,7 +44,7 @@ Para rodar este projeto localmente, siga os passos abaixo.
 
 ```bash
 # Clone o repositório
-git clone https://github.com/seu-usuario/catalogo-receitas.git
+git clone https://github.com/paulog357fribeiro/catalogo-receitas.git
 
 # Navegue até a pasta do backend
 cd catalogo-receitas/backend
