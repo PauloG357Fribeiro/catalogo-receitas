@@ -57,7 +57,7 @@ echo "MONGO_URI=mongodb+srv://seu_usuario:sua_senha@..." > .env
 
 # Inicie o servidor backend
 npm start
-
+```
 
 ### 2. Frontend
 
@@ -75,3 +75,4 @@ A aplicação estará disponível em: http://localhost:3000
 
 👨‍💻 Autor
 Feito com ❤️ por Paulo Gabriel & Gustavo Chaves
+```
