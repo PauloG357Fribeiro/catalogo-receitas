@@ -11,7 +11,7 @@ function Home() {
   useEffect(() => {
     async function fetchReceitas() {
       try {
-        const res = await api.get('/');
+        const res = await api.get('/receitas');
         setReceitas(res.data);
       } catch (error) {
         console.error('Erro ao buscar receitas: ', error);
@@ -20,24 +20,44 @@ function Home() {
     fetchReceitas();
   }, []);
 
+  const handleDelete = async (id) => {
+    const confirmar = window.confirm("Tem certeza que deseja excluir esta receita?");
+    
+    if (confirmar) {
+      try {
+        await api.delete(`/receitas/${id}`);
+        setReceitas(receitas.filter((receita) => receita._id !== id));
+        alert("Receita excluída com sucesso!");
+      } catch (error) {
+        console.error("Erro ao excluir receita:", error);
+        alert("Ocorreu um erro ao excluir a receita.");
+      }
+    }
+  };
+
   return (
     <div className={styles.container}>
       <h2>Lista de Receitas</h2>
       <div className={styles.lista}>
         {receitas.map((receita) => (
           <div key={receita._id} className={styles.receitaItem}>
-            
             <CardReceita
               nome={receita.nome}
               categoria={receita.categoria}
               descricao={receita.descricao}
               imagem={receita.imagem}
             />
-            <button 
-              className={styles.botaoEditar}
+            <button
               onClick={() => navigate(`/editar/${receita._id}`)}
+              className={styles.botaoEditar}
             >
               Editar
+            </button>
+            <button
+              onClick={() => handleDelete(receita._id)}
+              className={styles.botaoExcluir}
+            >
+              Excluir
             </button>
           </div>
         ))}

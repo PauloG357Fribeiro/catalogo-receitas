@@ -21,14 +21,18 @@ exports.createReceita = async (req, res) => {
 
 exports.updateReceita = async (req, res) => {
   try {
-    const receitaAtualizada = await Receita.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      { new: true }
-    );
-    res.json(receitaAtualizada);
+    const receita = await Receita.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true,
+    });
+
+    if (!receita) {
+      return res.status(404).json({ message: 'Receita não encontrada' });
+    }
+
+    res.status(200).json(receita);
   } catch (error) {
-    res.status(400).json({ error: 'Erro ao atualizar receita.' });
+    res.status(400).json({ message: 'Erro ao atualizar receita.', error: error.message });
   }
 };
 

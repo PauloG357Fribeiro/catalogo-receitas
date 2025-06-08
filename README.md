@@ -1,18 +1,46 @@
-# 🍲 Catálogo de Receitas
+# Catálogo de Receitas
 
-Aplicação web para cadastro, edição, exclusão e visualização de receitas culinárias. Projeto desenvolvido como trabalho final da disciplina **Linguagem de Programação para Internet**.
+Breve descrição do seu projeto. Ex: "Este é um sistema web completo para gerenciar e visualizar um catálogo de receitas culinárias, permitindo criar, editar, listar e remover receitas."
 
-## 🧰 Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
-- React
-- React Router DOM
-- Axios
-- CSS Modules
-- Node.js + Express
-- MongoDB
+- **Frontend:**
+  - React
+  - React Router
+  - Axios
+  - CSS Modules
 
-## ▶️ Como executar
+- **Backend:**
+  - Node.js
+  - Express
+  - Mongoose
+  - MongoDB
+  - Dotenv
 
-```bash
-npm install
-npm start
+## Como Executar o Projeto
+
+1.  **Pré-requisitos:** Você precisa ter o Node.js e o MongoDB instalados.
+
+2.  **Backend:**
+    ```bash
+    # Instale as dependências
+    npm install
+
+    # Crie um arquivo .env e configure sua string de conexão do MongoDB
+    # MONGO_URI=sua_string_de_conexao
+
+    # Inicie o servidor
+    npm start
+    ```
+
+3.  **Frontend:**
+    ```bash
+    # Em outro terminal, navegue para a pasta do frontend
+    cd ../frontend
+
+    # Instale as dependências
+    npm install
+
+    # Inicie a aplicação React
+    npm start
+    ```
