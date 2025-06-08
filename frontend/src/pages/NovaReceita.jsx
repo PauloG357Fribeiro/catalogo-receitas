@@ -22,19 +22,13 @@ function NovaReceita() {
     const novaReceita = { nome, categoria, descricao, imagem };
 
     try {
-      await axios.post("http://localhost:5000/receitas", novaReceita);
+      await axios.post("http://localhost:5004/receitas", novaReceita);
       alert("Receita cadastrada com sucesso!");
       navigate("/");
     } catch (err) {
       alert("Erro ao cadastrar receita.");
       console.error(err);
     }
-
-    // Limpa os campos depois do envio (opcional aqui, já que vai navegar)
-    setNome("");
-    setCategoria("");
-    setDescricao("");
-    setImagem("");
   };
 
   return (
@@ -42,12 +36,12 @@ function NovaReceita() {
       <h2>Cadastrar Nova Receita</h2>
       <form onSubmit={handleSubmit} className={styles.form}>
         <label>
-          Nome:
+          Título:
           <input
             type="text"
             value={nome}
             onChange={(e) => setNome(e.target.value)}
-            placeholder="Nome da Receita"
+            placeholder="Título da Receita"
           />
         </label>
 
