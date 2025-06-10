@@ -32,6 +32,12 @@ Esta aplicação foi desenvolvida como **projeto final** para a disciplina de *L
 
 ---
 
+O projeto se encontra hospedado pelo Railway, no seguinte domínio:
+
+https://catalogo-receitas-production.up.railway.app/
+
+---
+
 ## 🚀 Como Executar o Projeto
 
 Para rodar este projeto localmente, siga os passos abaixo.
