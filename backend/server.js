@@ -7,6 +7,11 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 5004;
 
+const whitelist = [
+  'http://localhost:3000',
+  process.env.FRONTEND
+]
+
 app.use(cors());
 app.use(express.json());
 
