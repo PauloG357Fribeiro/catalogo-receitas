@@ -22,7 +22,7 @@ function NovaReceita() {
     const novaReceita = { nome, categoria, descricao, imagem };
 
     try {
-      await axios.post("http://localhost:5004/api/receitas", novaReceita);
+      await axios.post("/api/receitas", novaReceita);
       alert("Receita cadastrada com sucesso!");
       navigate("/");
     } catch (err) {
