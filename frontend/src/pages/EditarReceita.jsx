@@ -16,7 +16,7 @@ function EditarReceita() {
   useEffect(() => {
     async function fetchReceita() {
       try {
-        const response = await api.get(`/receitas/${id}`);
+        const response = await api.get(`/api/receitas/${id}`);
         const receita = response.data;
 
         setNome(receita.nome);
@@ -46,7 +46,7 @@ function EditarReceita() {
     const receitaAtualizada = { nome, categoria, descricao, imagem };
 
     try {
-      await api.put(`/receitas/${id}`, receitaAtualizada);
+      await api.put(`/api/receitas/${id}`, receitaAtualizada);
       alert('Receita atualizada com sucesso!');
       navigate('/');
     } catch (error) {

@@ -11,7 +11,7 @@ function Home() {
   useEffect(() => {
     async function fetchReceitas() {
       try {
-        const res = await api.get("/receitas");
+        const res = await api.get("/api/receitas");
         setReceitas(res.data);
       } catch (error) {
         console.error("Erro ao buscar receitas: ", error);
@@ -27,7 +27,7 @@ function Home() {
 
     if (confirmar) {
       try {
-        await api.delete(`/receitas/${id}`);
+        await api.delete(`/api/receitas/${id}`);
         setReceitas(receitas.filter((receita) => receita._id !== id));
         alert("Receita excluída com sucesso!");
       } catch (error) {
