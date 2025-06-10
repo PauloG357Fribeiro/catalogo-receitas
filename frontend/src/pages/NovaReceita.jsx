@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import styles from "./NovaReceita.module.css";
+import api from "../services/api";
 
 function NovaReceita() {
   const [nome, setNome] = useState("");
@@ -22,7 +23,7 @@ function NovaReceita() {
     const novaReceita = { nome, categoria, descricao, imagem };
 
     try {
-      await axios.post("/api/receitas", novaReceita);
+      await api.post("/api/receitas", novaReceita);
       alert("Receita cadastrada com sucesso!");
       navigate("/");
     } catch (err) {
